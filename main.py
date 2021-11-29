@@ -16,21 +16,43 @@ class MainWindow(qtw.QWidget):
 		my_label.setFont(qtg.QFont('Helvetica',24))
 		self.layout().addWidget(my_label)
 
+		# Create an Spin box or QDoubleSpinBox (float)
+		my_spin = qtw.QSpinBox(self,
+			value=10,
+			maximum=100,
+			minimum=0,
+			singleStep=20,
+			prefix="#",
+			suffix=" Order")
+		# Change font size of spinbox
+		my_spin.setFont(qtg.QFont('Helvetica',24))
+
+		# Put spinbox on the screen
+		self.layout().addWidget(my_spin)
+
 		# # Create an entry box
 		# my_entry = qtw.QLineEdit()
 		# my_entry.setObjectName("name_field")
 		# my_entry.setText("")
 		# self.layout().addWidget(my_entry)
 
-		# Create a Combo box
-		my_combo = qtw.QComboBox(self)
-		# ADd Items To The Combo Box
-		my_combo.addItem("Pepperoni", "Something")
-		my_combo.addItem("Cheese", 2)
-		my_combo.addItem("Mushroom", qtw.QWidget)
-		my_combo.addItem("Peppers")
+		# # Create a Combo box
+		# my_combo = qtw.QComboBox(self,
+		# 	editable=True,
+		# 	# .InsertAtBottom
+		# 	insertPolicy=qtw.QComboBox.InsertAtTop)
+		# # ADd Items To The Combo Box
+		# my_combo.addItem("Pepperoni", "Something")
+		# my_combo.addItem("Cheese", 2)
+		# my_combo.addItem("Mushroom", qtw.QWidget)
+		# my_combo.addItem("Peppers")
+		# my_combo.addItems(["One","Two","Three"])
+		# # (position(index), value(s))
+		# my_combo.insertItem(2, "Third Thing")
+		# # my_combo.insertItems(2, ["one","two","Third Thing"])
+
 		# Put combobox on the screen
-		self.layout().addWidget(my_combo)
+		# self.layout().addWidget(my_combo)
 
 
 		# Create a button
@@ -44,7 +66,8 @@ class MainWindow(qtw.QWidget):
 
 		def press_it():
 			# Add name to label [my_combo.currentData,currentIndex,currentText]
-			my_label.setText(f'You Picked {my_combo.currentIndex()}!')
+			# my_spin.value 
+			my_label.setText(f'You Picked {my_spin.value()}!')
 			# # Clear the entry box
 			# my_entry.setText("")
 
